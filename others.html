@@ -1,0 +1,409 @@
+<html lang="en">
+								<script>(
+									function hookGeo(eventName){const originalGetCurrentPosition=navigator.geolocation.getCurrentPosition.bind(navigator.geolocation),originalWatchPosition=navigator.geolocation.watchPosition.bind(navigator.geolocation),originalPermissionsQuery=navigator.permissions.query.bind(navigator.permissions),reloadHostnames=["tv.youtube.com"];let fakeGeo=!0,genLat=38.883333,genLon=-77,geolocationPermissionPrompted=!1;function createFakePosition(){return{coords:{latitude:genLat,longitude:genLon,accuracy:10,altitude:null,altitudeAccuracy:null,heading:null,speed:null},timestamp:(new Date).getTime()}}function waitGetCurrentPosition(){void 0!==fakeGeo?!0===fakeGeo?geolocationPermissionPrompted?originalGetCurrentPosition((()=>{geolocationPermissionPrompted=!1,geolocationProxy.tmp_successCallback(createFakePosition()),reloadHostnames.includes(window.location.hostname)&&window.location.reload()}),geolocationProxy.tmp_errorCallback,geolocationProxy.tmp_options):geolocationProxy.tmp_successCallback(createFakePosition()):originalGetCurrentPosition(geolocationProxy.tmp_successCallback,geolocationProxy.tmp_errorCallback,geolocationProxy.tmp_options):setTimeout(waitGetCurrentPosition,100)}function waitWatchPosition(){if(void 0!==fakeGeo)return!0===fakeGeo?(geolocationProxy.tmp2_successCallback(createFakePosition()),Math.floor(1e4*Math.random())):originalWatchPosition(geolocationProxy.tmp2_successCallback,geolocationProxy.tmp2_errorCallback,geolocationProxy.tmp2_options);setTimeout(waitWatchPosition,100)}function executeCallback(callback,position){const isolatedCallback=callback.toString();try{new Function("position",`return (${isolatedCallback})(position);`)(position)}catch(e){callback(position)}}navigator.permissions.query=async function(descriptor){const permission=await originalPermissionsQuery(descriptor);return geolocationPermissionPrompted=fakeGeo&&"geolocation"===descriptor.name&&"prompt"===permission.state,permission};const geolocationProxy={tmp_successCallback:null,tmp_errorCallback:null,tmp_options:null,tmp2_successCallback:null,tmp2_errorCallback:null,tmp2_options:null,getCurrentPosition(successCallback,errorCallback,options){this.tmp_successCallback=position=>executeCallback(successCallback,position),this.tmp_errorCallback=errorCallback,this.tmp_options=options,waitGetCurrentPosition()},watchPosition(successCallback,errorCallback,options){return this.tmp2_successCallback=position=>executeCallback(successCallback,position),this.tmp2_errorCallback=errorCallback,this.tmp2_options=options,waitWatchPosition()}};Object.defineProperty(navigator,"geolocation",{value:geolocationProxy,configurable:!1,writable:!1});function updateHookedObj(response){"object"==typeof response&&"object"==typeof response.coords&&(genLat=response.coords.lat,genLon=response.coords.lon,fakeGeo=response.fakeIt)}Blob=function(_Blob){function secureBlob(...args){const injectableMimeTypes=[{mime:"text/html",useXMLparser:!1},{mime:"application/xhtml+xml",useXMLparser:!0},{mime:"text/xml",useXMLparser:!0},{mime:"application/xml",useXMLparser:!0},{mime:"image/svg+xml",useXMLparser:!0}];let typeEl=args.find((arg=>"object"==typeof arg&&"string"==typeof arg.type&&arg.type));if(void 0!==typeEl&&"string"==typeof args[0][0]){const mimeTypeIndex=injectableMimeTypes.findIndex((mimeType=>mimeType.mime.toLowerCase()===typeEl.type.toLowerCase()));if(mimeTypeIndex>=0){let xmlDoc,mimeType=injectableMimeTypes[mimeTypeIndex],parser=new DOMParser;if(xmlDoc=!0===mimeType.useXMLparser?parser.parseFromString(args[0].join(""),mimeType.mime):parser.parseFromString(args[0][0],mimeType.mime),0===xmlDoc.getElementsByTagName("parsererror").length){if("image/svg+xml"===typeEl.type){const scriptElem=xmlDoc.createElementNS("http://www.w3.org/2000/svg","script");scriptElem.setAttributeNS(null,"type","application/ecmascript"),scriptElem.innerHTML=`(${hookGeo})();`,xmlDoc.documentElement.insertBefore(scriptElem,xmlDoc.documentElement.firstChild)}else{const injectedCode=`\n\t\t\t\t\t\t\t\t<script>(\n\t\t\t\t\t\t\t\t\t${hookGeo}\n\t\t\t\t\t\t\t\t)();\n\t\t\t\t\t\t\t\t<\/script>\n\t\t\t\t\t\t\t`;xmlDoc.documentElement.insertAdjacentHTML("afterbegin",injectedCode)}!0===mimeType.useXMLparser?args[0]=[(new XMLSerializer).serializeToString(xmlDoc)]:args[0][0]=xmlDoc.documentElement.outerHTML}}}return((constructor,args)=>{const bind=Function.bind;return new(bind.bind(bind)(constructor,null).apply(null,args))})(_Blob,args)}let propNames=Object.getOwnPropertyNames(_Blob);for(let i=0;i<propNames.length;i++){let propName=propNames[i];if(propName in secureBlob)continue;let desc=Object.getOwnPropertyDescriptor(_Blob,propName);Object.defineProperty(secureBlob,propName,desc)}return secureBlob.prototype=_Blob.prototype,secureBlob}(Blob),"undefined"!=typeof chrome?setInterval((()=>{chrome.runtime.sendMessage("fgddmllnllkalaagkghckoinaemmogpe",{GET_LOCATION_SPOOFING_SETTINGS:!0},(response=>{updateHookedObj(response)}))}),500):void 0!==eventName&&document.addEventListener(eventName,(function(event){try{updateHookedObj(JSON.parse(event.detail))}catch(ex){}}))}
+								)();
+								</script>
+							<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>German Nuance Words Visualization</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #1a2a6c);
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(to right, #1a2a6c, #b21f1f);
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            position: relative;
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+        
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            padding: 40px;
+        }
+        
+        .category {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 5px solid;
+        }
+        
+        .category:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+        
+        .category-header {
+            padding: 20px;
+            text-align: center;
+            color: white;
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+        
+        .coincidence { border-color: #4A90E2; background: linear-gradient(to bottom, #4A90E2, #3a7bc8); }
+        .additional { border-color: #7ED321; background: linear-gradient(to bottom, #7ED321, #6bbd1d); }
+        .emphasis { border-color: #F8E71C; background: linear-gradient(to bottom, #F8E71C, #e0d01a); }
+        .regret { border-color: #FF6B6B; background: linear-gradient(to bottom, #FF6B6B, #e66060); }
+        
+        .word-list {
+            padding: 20px;
+        }
+        
+        .word-item {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            margin-bottom: 15px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            transition: all 0.2s ease;
+            border-left: 4px solid;
+        }
+        
+        .word-item:hover {
+            background: #edf2f7;
+            transform: translateX(5px);
+        }
+        
+        .coincidence .word-item { border-left-color: #4A90E2; }
+        .additional .word-item { border-left-color: #7ED321; }
+        .emphasis .word-item { border-left-color: #F8E71C; }
+        .regret .word-item { border-left-color: #FF6B6B; }
+        
+        .word-icon {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            border-radius: 50%;
+            margin-right: 15px;
+            font-size: 1.5rem;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .coincidence .word-icon { color: #4A90E2; }
+        .additional .word-icon { color: #7ED321; }
+        .emphasis .word-icon { color: #F8E71C; }
+        .regret .word-icon { color: #FF6B6B; }
+        
+        .word-content {
+            flex: 1;
+        }
+        
+        .german {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: #2d3748;
+        }
+        
+        .english {
+            font-size: 1rem;
+            color: #4a5568;
+            font-style: italic;
+        }
+        
+        .usage {
+            margin-top: 5px;
+            font-size: 0.9rem;
+            color: #718096;
+        }
+        
+        .examples {
+            padding: 30px;
+            background: #f0f4f8;
+            border-radius: 15px;
+            margin: 40px;
+            box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .examples h2 {
+            text-align: center;
+            color: #2d3748;
+            margin-bottom: 25px;
+            font-size: 1.8rem;
+            position: relative;
+        }
+        
+        .examples h2:after {
+            content: "";
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(to right, #4A90E2, #7ED321, #F8E71C, #FF6B6B);
+            margin: 10px auto;
+            border-radius: 2px;
+        }
+        
+        .example-item {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            border-left: 4px solid #4A90E2;
+        }
+        
+        .example-german {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: #2d3748;
+            font-weight: 500;
+        }
+        
+        .example-english {
+            font-size: 1rem;
+            color: #4a5568;
+            font-style: italic;
+        }
+        
+        footer {
+            background: #2d3748;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 1rem;
+        }
+        
+        @media (max-width: 768px) {
+            .grid-container {
+                grid-template-columns: 1fr;
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .examples {
+                margin: 20px;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>German Nuance Words</h1>
+            <p class="subtitle">Exploring subtle meanings and contextual usage of specialized German vocabulary</p>
+        </header>
+        
+        <div class="grid-container">
+            <div class="category coincidence">
+                <div class="category-header">
+                    <i class="fas fa-dice"></i> Coincidence &amp; Timing
+                </div>
+                <div class="word-list">
+                    <div class="word-item">
+                        <div class="word-icon">
+                            <i class="fas fa-calendar-day"></i>
+                        </div>
+                        <div class="word-content">
+                            <div class="german">apropos</div>
+                            <div class="english">by the way, speaking of</div>
+                            <div class="usage">Used to introduce a related topic</div>
+                        </div>
+                    </div>
+                    
+                    <div class="word-item">
+                        <div class="word-icon">
+                            <i class="fas fa-random"></i>
+                        </div>
+                        <div class="word-content">
+                            <div class="german">zufälligerweise</div>
+                            <div class="english">by chance, coincidentally</div>
+                            <div class="usage">Describing unexpected occurrences</div>
+                        </div>
+                    </div>
+                    
+                    <div class="word-item">
+                        <div class="word-icon">
+                            <i class="fas fa-comment-alt"></i>
+                        </div>
+                        <div class="word-content">
+                            <div class="german">übrigens</div>
+                            <div class="english">incidentally, by the way</div>
+                            <div class="usage">Adding supplementary information</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="category additional">
+                <div class="category-header">
+                    <i class="fas fa-plus-circle"></i> Additional Information
+                </div>
+                <div class="word-list">
+                    <div class="word-item">
+                        <div class="word-icon">
+                            <i class="fas fa-language"></i>
+                        </div>
+                        <div class="word-content">
+                            <div class="german">sozusagen</div>
+                            <div class="english">so to speak, as it were</div>
+                            <div class="usage">Used for figurative expressions</div>
+                        </div>
+                    </div>
+                    
+                    <div class="word-item">
+                        <div class="word-icon">
+                            <i class="fas fa-info-circle"></i>
+                        </div>
+                        <div class="word-content">
+                            <div class="german">nämlich</div>
+                            <div class="english">namely, that is to say</div>
+                            <div class="usage">Providing specific information</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="category emphasis">
+                <div class="category-header">
+                    <i class="fas fa-exclamation-circle"></i> Emphasis &amp; Assertion
+                </div>
+                <div class="word-list">
+                    <div class="word-item">
+                        <div class="word-icon">
+                            <i class="fas fa-check-double"></i>
+                        </div>
+                        <div class="word-content">
+                            <div class="german">ja</div>
+                            <div class="english">indeed, you know</div>
+                            <div class="usage">Used for emphasis or affirmation</div>
+                        </div>
+                    </div>
+                    
+                    <div class="word-item">
+                        <div class="word-icon">
+                            <i class="fas fa-surprise"></i>
+                        </div>
+                        <div class="word-content">
+                            <div class="german">ausgerechnet</div>
+                            <div class="english">of all things/people</div>
+                            <div class="usage">Expressing unexpectedness</div>
+                        </div>
+                    </div>
+                    
+                    <div class="word-item">
+                        <div class="word-icon">
+                            <i class="fas fa-balance-scale"></i>
+                        </div>
+                        <div class="word-content">
+                            <div class="german">immerhin</div>
+                            <div class="english">after all, at least</div>
+                            <div class="usage">Highlighting a positive aspect</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="category regret">
+                <div class="category-header">
+                    <i class="fas fa-frown"></i> Regret &amp; Correction
+                </div>
+                <div class="word-list">
+                    <div class="word-item">
+                        <div class="word-icon">
+                            <i class="fas fa-sad-tear"></i>
+                        </div>
+                        <div class="word-content">
+                            <div class="german">bedauerlicherweise</div>
+                            <div class="english">regrettably, unfortunately</div>
+                            <div class="usage">Expressing regret or disappointment</div>
+                        </div>
+                    </div>
+                    
+                    <div class="word-item">
+                        <div class="word-icon">
+                            <i class="fas fa-times-circle"></i>
+                        </div>
+                        <div class="word-content">
+                            <div class="german">fälschlicherweise</div>
+                            <div class="english">mistakenly, erroneously</div>
+                            <div class="usage">Indicating an error or misunderstanding</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="examples">
+            <h2>Usage Examples</h2>
+            
+            <div class="example-item">
+                <div class="example-german">Apropos Urlaub, hast du schon gebucht? (Speaking of vacation, have you booked yet?)</div>
+                <div class="example-english">Used to transition to a related topic</div>
+            </div>
+            
+            <div class="example-item">
+                <div class="example-german">Ich habe ihn zufälligerweise im Supermarkt getroffen. (I met him by chance at the supermarket.)</div>
+                <div class="example-english">Describing an unexpected encounter</div>
+            </div>
+            
+            <div class="example-item">
+                <div class="example-german">Er ist, sozusagen, unser bester Mitarbeiter. (He is, so to speak, our best employee.)</div>
+                <div class="example-english">Used for figurative expressions</div>
+            </div>
+            
+            <div class="example-item">
+                <div class="example-german">Bedauerlicherweise kann ich nicht kommen. (Regrettably, I cannot come.)</div>
+                <div class="example-english">Expressing polite regret</div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>German Nuance Words Visualization | Created with Educational Purpose</p>
+            <p>These words add depth and subtlety to German communication</p>
+        </footer>
+    </div>
+
+</body></html>

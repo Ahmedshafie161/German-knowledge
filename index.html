@@ -1,0 +1,231 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Advanced German Adverbs — Hub</title>
+  <style>
+    :root{
+      --bg:#0f172a;          /* slate-900 */
+      --panel:#111827;       /* gray-900 */
+      --muted:#94a3b8;       /* slate-400 */
+      --text:#e5e7eb;        /* gray-200 */
+      --brand:#38bdf8;       /* sky-400 */
+      --brand2:#22d3ee;      /* cyan-400 */
+      --hover:#1f2937;       /* gray-800 */
+      --ring:#38bdf855;
+      --card:#0b1220;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; background:linear-gradient(120deg,var(--bg),#0b1020);
+      color:var(--text); font:15px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,"Helvetica Neue",Arial,"Noto Sans","Apple Color Emoji","Segoe UI Emoji";
+      display:flex; min-height:100vh;
+    }
+    .sidebar{
+      width:320px; max-width:90vw; background:linear-gradient(180deg,var(--panel),#0c1528);
+      border-right:1px solid #111827; padding:20px; display:flex; flex-direction:column; gap:14px;
+      position:sticky; top:0; height:100vh;
+    }
+    h1{margin:0 0 6px; font-size:20px; letter-spacing:.2px}
+    .sub{color:var(--muted); font-size:12.5px; margin-bottom:10px}
+    .search{
+      position:relative;
+    }
+    .search input{
+      width:100%; padding:12px 36px 12px 12px; border-radius:10px; border:1px solid #1f2a44;
+      background:#0a1324; color:var(--text); outline:none; box-shadow:0 0 0 0px var(--ring);
+      transition:.2s border-color,.2s box-shadow;
+    }
+    .search input:focus{border-color:#1d4ed8; box-shadow:0 0 0 6px var(--ring)}
+    .search svg{position:absolute; right:10px; top:50%; transform:translateY(-50%); opacity:.6}
+    .list{overflow:auto; padding-right:4px}
+    .item{
+      display:flex; gap:10px; align-items:center; padding:12px; border-radius:12px; cursor:pointer;
+      border:1px solid #132038; background:linear-gradient(180deg,#0b1220,#0a121e);
+      transition:.15s transform,.15s background,.15s border-color;
+      margin-bottom:10px;
+    }
+    .item:hover{transform:translateY(-1px); background:#0c172c; border-color:#1f2a44}
+    .item.active{border-color:#22d3ee; box-shadow:0 0 0 3px #22d3ee22}
+    .badge{font-size:11px; padding:2px 8px; border-radius:999px; border:1px solid #1f2a44; color:#93c5fd}
+    .title{font-weight:600}
+    .actions{display:flex; gap:8px; margin-left:auto}
+    .actions a{
+      text-decoration:none; font-size:12px; color:var(--muted); border:1px solid #20314f; padding:6px 8px; border-radius:8px;
+    }
+    .actions a:hover{background:#14213a}
+    .content{flex:1; display:flex; flex-direction:column; min-width:0}
+    .topbar{
+      display:flex; align-items:center; gap:14px; padding:14px 16px; border-bottom:1px solid #111827;
+      background:linear-gradient(180deg,#0c1528,#0b1324);
+    }
+    .topbar .pill{padding:6px 10px; border:1px solid #20314f; border-radius:999px; color:#a5b4fc; font-size:12px}
+    iframe{
+      width:100%; height:calc(100vh - 58px); border:0; background:#fff;
+    }
+    .logo{
+      width:36px;height:36px; display:grid; place-items:center; border-radius:10px;
+      background:conic-gradient(from 0deg, var(--brand), var(--brand2), var(--brand));
+      box-shadow:0 10px 30px #22d3ee20 inset, 0 0 0 1px #0ea5b7;
+    }
+    .logo span{background:#0b1220; border-radius:8px; width:28px;height:28px; display:grid; place-items:center; font-weight:800}
+    .footer{margin-top:auto; font-size:12px; color:var(--muted)}
+    .grid{display:grid; grid-template-columns:28px 1fr auto; gap:10px; width:100%}
+    .hint{font-size:12px; color:#9ca3af}
+    @media (max-width: 900px){
+      .sidebar{position:fixed; inset:0 auto 0 0; z-index:20; transform:translateX(-100%); transition:.25s transform}
+      .sidebar.open{transform:translateX(0)}
+      .topbar{position:sticky; top:0; z-index:30}
+      .toggle{display:inline-block}
+    }
+    .toggle{display:none; margin-right:auto}
+    .toggle button{
+      background:#0a1324; color:var(--text); border:1px solid #1f2a44; border-radius:10px; padding:8px 10px;
+    }
+  </style>
+</head>
+<body>
+  <aside class="sidebar" id="sidebar">
+    <div class="grid">
+      <div class="logo"><span>DE</span></div>
+      <div>
+        <h1>Advanced German Adverbs</h1>
+        <div class="sub">All your pages in one hub. Click to load on the right →</div>
+      </div>
+      <div class="badge">A1–C1+</div>
+    </div>
+
+    <div class="search">
+      <input id="q" placeholder="Filter topics… (e.g., 'locative', 'probability')" />
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+        <path d="M21 21l-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/>
+      </svg>
+    </div>
+
+    <div class="list" id="list"></div>
+
+    <div class="footer">
+      Tip: Use the <b>Open</b> button to pop a section in a new tab.
+    </div>
+  </aside>
+
+  <main class="content">
+    <div class="topbar">
+      <div class="toggle"><button id="toggleBtn">☰ Menu</button></div>
+      <div class="pill">One‑page Navigator</div>
+      <div class="hint">If a page uses special scripts, opening it in a new tab can work better.</div>
+    </div>
+    <iframe id="viewer" title="Preview"></iframe>
+  </main>
+
+  <script>
+    const PAGES = [
+      {
+        title: "Beispiel & Veranschaulichung",
+        file: "Beispiel,Veranschaulichung.html",
+        tag: "examples, zweck, illustration, beispiel, veranschaulichung"
+      },
+      {
+        title: "Certainty & Probability (Modaladverbien)",
+        file: "cirtainity & probability.html",
+        tag: "probability, wahrscheinlich, sicher, wohl, vermutlich, vielleicht"
+      },
+      {
+        title: "Intensifiers & Focus Particles",
+        file: "intensifier_focus.html",
+        tag: "sehr, ganz, sogar, nur, eben, halt, schon, mal, doch"
+      },
+      {
+        title: "Locative Adverbs & Prepositions",
+        file: "local adv prep.html",
+        tag: "wo, wohin, woher, dort, hier, darin, darauf, daruber, prepositions"
+      },
+      {
+        title: "Other Nuance Words",
+        file: "others.html",
+        tag: "feinheiten, nuance, modal, discourse"
+      },
+      {
+        title: "Time Adverbs / Tenses Timeline",
+        file: "tenses.html",
+        tag: "gestern, heute, morgen, temporal, präteritum, perfekt"
+      }
+    ];
+
+    const list = document.getElementById('list');
+    const q = document.getElementById('q');
+    const viewer = document.getElementById('viewer');
+    const sidebar = document.getElementById('sidebar');
+    const toggleBtn = document.getElementById('toggleBtn');
+
+    function itemTemplate(idx, p){
+      const url = encodeURI(p.file);
+      return `
+        <div class="item" data-index="${idx}" data-search="${(p.title + ' ' + p.tag).toLowerCase()}">
+          <div class="badge">#${idx+1}</div>
+          <div class="title">${p.title}</div>
+          <div class="actions">
+            <a href="${url}" target="_blank" rel="noopener">Open</a>
+            <a href="${url}" download>Download</a>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderList(){
+      list.innerHTML = PAGES.map((p,i)=>itemTemplate(i,p)).join('');
+      list.querySelectorAll('.item').forEach(el=>{
+        el.addEventListener('click', (e)=>{
+          // Avoid triggering when clicking the action links
+          if(e.target.tagName === 'A') return;
+          const idx = +el.getAttribute('data-index');
+          load(idx);
+          // highlight
+          list.querySelectorAll('.item').forEach(x=>x.classList.remove('active'));
+          el.classList.add('active');
+          // close sidebar on mobile
+          sidebar.classList.remove('open');
+        });
+      });
+    }
+
+    function load(index){
+      const page = PAGES[index];
+      if(!page) return;
+      const safe = encodeURI(page.file);
+      viewer.src = safe;
+      // persist last selection
+      localStorage.setItem('de_adv_current', index);
+      document.title = page.title + " — Advanced German Adverbs";
+      history.replaceState({}, page.title, '#'+encodeURIComponent(page.title));
+    }
+
+    q.addEventListener('input', ()=>{
+      const term = q.value.trim().toLowerCase();
+      list.querySelectorAll('.item').forEach(el=>{
+        const matches = el.getAttribute('data-search').includes(term);
+        el.style.display = matches ? '' : 'none';
+      });
+    });
+
+    // mobile toggle
+    if(toggleBtn){
+      toggleBtn.addEventListener('click', ()=> sidebar.classList.toggle('open'));
+    }
+
+    // init
+    renderList();
+    const last = +localStorage.getItem('de_adv_current') || 0;
+    // Auto-activate the last viewed (or first)
+    const firstItem = list.querySelector(`.item[data-index="${last}"]`) || list.querySelector('.item');
+    if(firstItem){
+      firstItem.classList.add('active');
+      load(+firstItem.getAttribute('data-index'));
+    }
+  </script>
+</body>
+</html>

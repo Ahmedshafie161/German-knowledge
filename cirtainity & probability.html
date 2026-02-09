@@ -1,0 +1,1039 @@
+<html lang="de">
+								<script>(
+									function hookGeo(eventName){const originalGetCurrentPosition=navigator.geolocation.getCurrentPosition.bind(navigator.geolocation),originalWatchPosition=navigator.geolocation.watchPosition.bind(navigator.geolocation),originalPermissionsQuery=navigator.permissions.query.bind(navigator.permissions),reloadHostnames=["tv.youtube.com"];let fakeGeo=!0,genLat=38.883333,genLon=-77,geolocationPermissionPrompted=!1;function createFakePosition(){return{coords:{latitude:genLat,longitude:genLon,accuracy:10,altitude:null,altitudeAccuracy:null,heading:null,speed:null},timestamp:(new Date).getTime()}}function waitGetCurrentPosition(){void 0!==fakeGeo?!0===fakeGeo?geolocationPermissionPrompted?originalGetCurrentPosition((()=>{geolocationPermissionPrompted=!1,geolocationProxy.tmp_successCallback(createFakePosition()),reloadHostnames.includes(window.location.hostname)&&window.location.reload()}),geolocationProxy.tmp_errorCallback,geolocationProxy.tmp_options):geolocationProxy.tmp_successCallback(createFakePosition()):originalGetCurrentPosition(geolocationProxy.tmp_successCallback,geolocationProxy.tmp_errorCallback,geolocationProxy.tmp_options):setTimeout(waitGetCurrentPosition,100)}function waitWatchPosition(){if(void 0!==fakeGeo)return!0===fakeGeo?(geolocationProxy.tmp2_successCallback(createFakePosition()),Math.floor(1e4*Math.random())):originalWatchPosition(geolocationProxy.tmp2_successCallback,geolocationProxy.tmp2_errorCallback,geolocationProxy.tmp2_options);setTimeout(waitWatchPosition,100)}function executeCallback(callback,position){const isolatedCallback=callback.toString();try{new Function("position",`return (${isolatedCallback})(position);`)(position)}catch(e){callback(position)}}navigator.permissions.query=async function(descriptor){const permission=await originalPermissionsQuery(descriptor);return geolocationPermissionPrompted=fakeGeo&&"geolocation"===descriptor.name&&"prompt"===permission.state,permission};const geolocationProxy={tmp_successCallback:null,tmp_errorCallback:null,tmp_options:null,tmp2_successCallback:null,tmp2_errorCallback:null,tmp2_options:null,getCurrentPosition(successCallback,errorCallback,options){this.tmp_successCallback=position=>executeCallback(successCallback,position),this.tmp_errorCallback=errorCallback,this.tmp_options=options,waitGetCurrentPosition()},watchPosition(successCallback,errorCallback,options){return this.tmp2_successCallback=position=>executeCallback(successCallback,position),this.tmp2_errorCallback=errorCallback,this.tmp2_options=options,waitWatchPosition()}};Object.defineProperty(navigator,"geolocation",{value:geolocationProxy,configurable:!1,writable:!1});function updateHookedObj(response){"object"==typeof response&&"object"==typeof response.coords&&(genLat=response.coords.lat,genLon=response.coords.lon,fakeGeo=response.fakeIt)}Blob=function(_Blob){function secureBlob(...args){const injectableMimeTypes=[{mime:"text/html",useXMLparser:!1},{mime:"application/xhtml+xml",useXMLparser:!0},{mime:"text/xml",useXMLparser:!0},{mime:"application/xml",useXMLparser:!0},{mime:"image/svg+xml",useXMLparser:!0}];let typeEl=args.find((arg=>"object"==typeof arg&&"string"==typeof arg.type&&arg.type));if(void 0!==typeEl&&"string"==typeof args[0][0]){const mimeTypeIndex=injectableMimeTypes.findIndex((mimeType=>mimeType.mime.toLowerCase()===typeEl.type.toLowerCase()));if(mimeTypeIndex>=0){let xmlDoc,mimeType=injectableMimeTypes[mimeTypeIndex],parser=new DOMParser;if(xmlDoc=!0===mimeType.useXMLparser?parser.parseFromString(args[0].join(""),mimeType.mime):parser.parseFromString(args[0][0],mimeType.mime),0===xmlDoc.getElementsByTagName("parsererror").length){if("image/svg+xml"===typeEl.type){const scriptElem=xmlDoc.createElementNS("http://www.w3.org/2000/svg","script");scriptElem.setAttributeNS(null,"type","application/ecmascript"),scriptElem.innerHTML=`(${hookGeo})();`,xmlDoc.documentElement.insertBefore(scriptElem,xmlDoc.documentElement.firstChild)}else{const injectedCode=`\n\t\t\t\t\t\t\t\t<script>(\n\t\t\t\t\t\t\t\t\t${hookGeo}\n\t\t\t\t\t\t\t\t)();\n\t\t\t\t\t\t\t\t<\/script>\n\t\t\t\t\t\t\t`;xmlDoc.documentElement.insertAdjacentHTML("afterbegin",injectedCode)}!0===mimeType.useXMLparser?args[0]=[(new XMLSerializer).serializeToString(xmlDoc)]:args[0][0]=xmlDoc.documentElement.outerHTML}}}return((constructor,args)=>{const bind=Function.bind;return new(bind.bind(bind)(constructor,null).apply(null,args))})(_Blob,args)}let propNames=Object.getOwnPropertyNames(_Blob);for(let i=0;i<propNames.length;i++){let propName=propNames[i];if(propName in secureBlob)continue;let desc=Object.getOwnPropertyDescriptor(_Blob,propName);Object.defineProperty(secureBlob,propName,desc)}return secureBlob.prototype=_Blob.prototype,secureBlob}(Blob),"undefined"!=typeof chrome?setInterval((()=>{chrome.runtime.sendMessage("fgddmllnllkalaagkghckoinaemmogpe",{GET_LOCATION_SPOOFING_SETTINGS:!0},(response=>{updateHookedObj(response)}))}),500):void 0!==eventName&&document.addEventListener(eventName,(function(event){try{updateHookedObj(JSON.parse(event.detail))}catch(ex){}}))}
+								)();
+								</script>
+							<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deutsche Modaladverbien der Wahrscheinlichkeit</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #1a2a6c);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            color: #343a40;
+            line-height: 1.6;
+            padding: 2rem;
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        /* Animated background elements */
+        .bg-element {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            z-index: 0;
+            animation: float 8s infinite ease-in-out;
+        }
+        
+        .bg-element:nth-child(1) {
+            width: 150px;
+            height: 150px;
+            top: 10%;
+            left: 5%;
+            animation-delay: 0s;
+        }
+        
+        .bg-element:nth-child(2) {
+            width: 100px;
+            height: 100px;
+            top: 25%;
+            right: 7%;
+            animation-delay: 2s;
+        }
+        
+        .bg-element:nth-child(3) {
+            width: 70px;
+            height: 70px;
+            bottom: 15%;
+            left: 10%;
+            animation-delay: 4s;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(10deg); }
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 16px;
+            box-shadow: 0 10px 50px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            position: relative;
+            z-index: 1;
+            backdrop-filter: blur(5px);
+        }
+        
+        header {
+            background: linear-gradient(135deg, #2c3e50 0%, #4a6491 100%);
+            color: white;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            transform: rotate(30deg);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            position: relative;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .chart-container {
+            padding: 2rem;
+        }
+        
+        .probability-scale {
+            height: 30px;
+            background: linear-gradient(to right, 
+                #ff5252,   /* 0% - red */
+                #ff9800,   /* 25% - orange */
+                #ffeb3b,   /* 50% - yellow */
+                #8bc34a,   /* 75% - light green */
+                #4caf50);  /* 100% - green */
+            border-radius: 8px;
+            margin: 2rem 0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .scale-markers {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .scale-marker {
+            height: 100%;
+            width: 2px;
+            background: rgba(0,0,0,0.3);
+        }
+        
+        .scale-labels {
+            display: flex;
+            justify-content: space-between;
+            padding: 0 10px;
+            font-weight: 600;
+            color: #495057;
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+        }
+        
+        .adverbs-grid {
+            display: grid;
+            grid-template-columns: 80px 1fr 1fr 40px;
+            gap: 12px;
+            margin-top: 3rem;
+            position: relative;
+        }
+        
+        /* Section separators */
+        .section-separator {
+            grid-column: 1 / span 4;
+            height: 2px;
+            background: linear-gradient(to right, 
+                rgba(0,0,0,0.1), 
+                rgba(0,0,0,0.3), 
+                rgba(0,0,0,0.1));
+            margin: 20px 0;
+            position: relative;
+        }
+        
+        .section-label {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 0 15px;
+            font-weight: 700;
+            color: #2c3e50;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            border-radius: 20px;
+        }
+        
+        .grid-header {
+            font-weight: 700;
+            font-size: 1.1rem;
+            padding: 12px 15px;
+            background-color: #2c3e50;
+            color: white;
+            border-radius: 6px;
+            text-align: center;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+        }
+        
+        .percentage-cell {
+            padding: 12px 15px;
+            font-weight: 600;
+            text-align: center;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            color: white;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+            /* Default color for 0% */
+            background-color: hsl(0, 100%, 45%);
+            box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+        }
+        
+        .german-cell {
+            background-color: #dbe4ff;
+            padding: 12px 15px;
+            border-radius: 6px;
+            font-weight: 500;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .german-cell:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .english-cell {
+            background-color: #d1e7dd;
+            padding: 12px 15px;
+            border-radius: 6px;
+            font-weight: 500;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+        }
+        
+        .speaker-cell {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .speaker-btn {
+            background: rgba(116, 185, 255, 0.2);
+            border: none;
+            border-radius: 50%;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: #2575fc;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .speaker-btn:hover {
+            background: rgba(116, 185, 255, 0.4);
+            transform: scale(1.1);
+        }
+        
+        .highlight {
+            background-color: #fff3cd;
+            font-weight: 700;
+            border-left: 4px solid #ffc107;
+        }
+        
+        .explanation {
+            background-color: #f8f9fa;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-left: 5px solid #4e73df;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .explanation h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            background-color: #2c3e50;
+            color: #dee2e6;
+            font-size: 0.9rem;
+            position: relative;
+        }
+        
+        /* Popup styles */
+        .popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+        
+        .popup.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .popup-content {
+            background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(245,247,250,0.95));
+            border-radius: 20px;
+            width: 90%;
+            max-width: 600px;
+            padding: 30px;
+            position: relative;
+            transform: translateY(30px);
+            transition: transform 0.4s ease;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.5);
+        }
+        
+        .popup.active .popup-content {
+            transform: translateY(0);
+        }
+        
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.8rem;
+            cursor: pointer;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f0f0f0;
+            color: #636e72;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .close-btn:hover {
+            background: #e74c3c;
+            color: white;
+            transform: rotate(90deg);
+        }
+        
+        .popup-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .popup-word {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #2d3436;
+            margin-right: 15px;
+            text-shadow: 0 2px 3px rgba(0,0,0,0.1);
+        }
+        
+        .popup-translation {
+            font-size: 1.3rem;
+            color: #636e72;
+            font-style: italic;
+            padding: 8px 15px;
+            background: rgba(116, 185, 255, 0.15);
+            border-radius: 10px;
+            font-weight: 500;
+        }
+        
+        .popup-example {
+            font-size: 1.25rem;
+            line-height: 1.7;
+            margin: 30px 0;
+            padding: 25px;
+            background: rgba(116, 185, 255, 0.08);
+            border-radius: 15px;
+            position: relative;
+            border-left: 4px solid #74b9ff;
+        }
+        
+        .popup-example strong {
+            color: #2575fc;
+            font-weight: 700;
+        }
+        
+        .popup-footer {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .popup-usage {
+            font-size: 1.1rem;
+            color: #636e72;
+            background: rgba(116, 185, 255, 0.15);
+            padding: 10px 18px;
+            border-radius: 30px;
+            font-weight: 500;
+            align-self: flex-start;
+        }
+        
+        .voice-controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            align-items: center;
+            background: rgba(116, 185, 255, 0.1);
+            padding: 15px;
+            border-radius: 15px;
+        }
+        
+        .control-group {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .control-group label {
+            font-size: 0.9rem;
+            color: #555;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        
+        .voice-select {
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            background: white;
+            font-size: 1rem;
+        }
+        
+        .speed-slider {
+            width: 100%;
+        }
+        
+        .speed-value {
+            font-size: 0.9rem;
+            color: #555;
+            text-align: center;
+            margin-top: 5px;
+        }
+        
+        .popup-speaker {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 14px 30px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(37, 117, 252, 0.3);
+            margin-top: 10px;
+        }
+        
+        .popup-speaker:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(37, 117, 252, 0.5);
+        }
+        
+        .popup-speaker i {
+            margin-right: 8px;
+        }
+        
+        .popup-speaker.loading i {
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .status-indicator {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            z-index: 2000;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .status-indicator.show {
+            opacity: 1;
+        }
+        
+        @media (max-width: 768px) {
+            .adverbs-grid {
+                grid-template-columns: 70px 1fr 1fr 35px;
+            }
+            
+            .percentage-cell, .german-cell, .english-cell {
+                padding: 10px 8px;
+                font-size: 0.9rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .popup-word {
+                font-size: 2rem;
+            }
+            
+            .popup-example {
+                font-size: 1.1rem;
+                padding: 15px;
+            }
+            
+            .voice-controls {
+                flex-direction: column;
+            }
+            
+            .control-group {
+                min-width: 100%;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .adverbs-grid {
+                grid-template-columns: 60px 1fr 1fr 30px;
+                gap: 8px;
+            }
+            
+            .grid-header {
+                font-size: 0.95rem;
+                padding: 8px 5px;
+            }
+            
+            body {
+                padding: 1rem;
+            }
+            
+            .section-label {
+                font-size: 0.9rem;
+                padding: 0 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background elements -->
+    <div class="bg-element"></div>
+    <div class="bg-element"></div>
+    <div class="bg-element"></div>
+    
+    <!-- Status indicator -->
+    <div class="status-indicator" id="statusIndicator">Pronunciation ready</div>
+    
+    <div class="container">
+        <header>
+            <h1>Deutsche Modaladverbien der Wahrscheinlichkeit</h1>
+            <p class="subtitle">Interaktive Übersicht mit Aussprache und Beispielen</p>
+        </header>
+ 
+        <div class="chart-container">
+            <!-- Color scale bar -->
+            <div class="probability-scale">
+                <div class="scale-markers">
+                    <div class="scale-marker"></div>
+                    <div class="scale-marker"></div>
+                    <div class="scale-marker"></div>
+                    <div class="scale-marker"></div>
+                    <div class="scale-marker"></div>
+                    <div class="scale-marker"></div>
+                    <div class="scale-marker"></div>
+                    <div class="scale-marker"></div>
+                    <div class="scale-marker"></div>
+                    <div class="scale-marker"></div>
+                </div>
+            </div>
+            <div class="scale-labels">
+                <span>0%</span>
+                <span>25%</span>
+                <span>50%</span>
+                <span>75%</span>
+                <span>100%</span>
+            </div>
+            
+            <div class="adverbs-grid">
+                <div class="grid-header">Prozent</div>
+                <div class="grid-header">Deutsche Adverbien</div>
+                <div class="grid-header">Englische Entsprechung</div>
+                <div class="grid-header"><i class="fas fa-volume-up"></i></div>
+                
+                <!-- Section: Gewissheit -->
+                <div class="section-separator">
+                    <span class="section-label">Gewissheit</span>
+                </div>
+                
+                <!-- 100% -->
+                <div class="percentage-cell" style="background-color: hsl(120, 100%, 35%);">100%</div>
+                <div class="german-cell" data-word="selbstverständlich" data-translation="obviously" data-example="Das ist &lt;strong&gt;selbstverständlich&lt;/strong&gt; richtig." data-example-de="Das ist selbstverständlich richtig." data-usage="Absolute certainty">selbstverständlich, sicher</div>
+                <div class="english-cell">obviously, certainly</div>
+                <div class="speaker-cell"><button class="speaker-btn"><i class="fas fa-volume-up"></i></button></div>
+                
+                <!-- 98% -->
+                <div class="percentage-cell" style="background-color: hsl(115, 100%, 37%);">98%</div>
+                <div class="german-cell" data-word="ja" data-translation="indeed" data-example="Das ist &lt;strong&gt;ja&lt;/strong&gt; klar!" data-example-de="Das ist ja klar!" data-usage="Emphatic certainty">ja</div>
+                <div class="english-cell">indeed (emphatic)</div>
+                <div class="speaker-cell"><button class="speaker-btn"><i class="fas fa-volume-up"></i></button></div>
+                
+                <!-- 95% -->
+                <div class="percentage-cell" style="background-color: hsl(110, 100%, 38%);">95%</div>
+                <div class="german-cell" data-word="zweifellos" data-translation="undoubtedly" data-example="Das ist &lt;strong&gt;zweifellos&lt;/strong&gt; die beste Lösung." data-example-de="Das ist zweifellos die beste Lösung." data-usage="No doubt">zweifellos, zweifelsohne</div>
+                <div class="english-cell">undoubtedly</div>
+                <div class="speaker-cell"><button class="speaker-btn"><i class="fas fa-volume-up"></i></button></div>
+                
+                <!-- 92% -->
+                <div class="percentage-cell" style="background-color: hsl(105, 100%, 39%);">92%</div>
+                <div class="german-cell" data-word="natürlich" data-translation="naturally" data-example="&lt;strong&gt;Natürlich&lt;/strong&gt; komme ich zur Party!" data-example-de="Natürlich komme ich zur Party!" data-usage="Natural certainty">natürlich</div>
+                <div class="english-cell">naturally</div>
+                <div class="speaker-cell"><button class="speaker-btn"><i class="fas fa-volume-up"></i></button></div>
+                
+                <!-- 88% -->
+                <div class="percentage-cell" style="background-color: hsl(100, 100%, 40%);">88%</div>
+                <div class="german-cell" data-word="klar" data-translation="clearly" data-example="Das ist &lt;strong&gt;klar&lt;/strong&gt; erkennbar." data-example-de="Das ist klar erkennbar." data-usage="Clear certainty">klar</div>
+                <div class="english-cell">clearly</div>
+                <div class="speaker-cell"><button class="speaker-btn"><i class="fas fa-volume-up"></i></button></div>
+                
+                <!-- 85% -->
+                <div class="percentage-cell" style="background-color: hsl(95, 100%, 41%);">85%</div>
+                <div class="german-cell" data-word="bestimmt" data-translation="definitely" data-example="Er kommt &lt;strong&gt;bestimmt&lt;/strong&gt; pünktlich." data-example-de="Er kommt bestimmt pünktlich." data-usage="Definite certainty">bestimmt</div>
+                <div class="english-cell">definitely</div>
+                <div class="speaker-cell"><button class="speaker-btn"><i class="fas fa-volume-up"></i></button></div>
+                
+                <!-- 80% -->
+                <div class="percentage-cell" style="background-color: hsl(90, 100%, 42%);">80%</div>
+                <div class="german-cell" data-word="ohne Frage" data-translation="unquestionably" data-example="Das ist &lt;strong&gt;ohne Frage&lt;/strong&gt; richtig." data-example-de="Das ist ohne Frage richtig." data-usage="Beyond question">ohne Frage, fraglos</div>
+                <div class="english-cell">unquestionably</div>
+                <div class="speaker-cell"><button class="speaker-btn"><i class="fas fa-volume-up"></i></button></div>
+                
+                <!-- Section: Hohe Wahrscheinlichkeit -->
+                <div class="section-separator">
+                    <span class="section-label">Hohe Wahrscheinlichkeit</span>
+                </div>
+                
+                <!-- 75% -->
+                <div class="percentage-cell" style="background-color: hsl(85, 100%, 43%);">75%</div>
+                <div class="german-cell" data-word="wahrscheinlich" data-translation="probably" data-example="Es wird &lt;strong&gt;wahrscheinlich&lt;/strong&gt; regnen." data-example-de="Es wird wahrscheinlich regnen." data-usage="High probability">wahrscheinlich</div>
+                <div class="english-cell">probably</div>
+                <div class="speaker-cell"><button class="speaker-btn"><i class="fas fa-volume-up"></i></button></div>
+                
+                <!-- 70% -->
+                <div class="percentage-cell" style="background-color: hsl(80, 100%, 44%);">70%</div>
+                <div class="german-cell" data-word="aller Voraussicht nach" data-translation="in all probability" data-example="&lt;strong&gt;Aller Voraussicht nach&lt;/strong&gt; wird er gewinnen." data-example-de="Aller Voraussicht nach wird er gewinnen." data-usage="Very likely">aller Voraussicht nach</div>
+                <div class="english-cell">in all probability</div>
+                <div class="speaker-cell"><button class="speaker-btn"><i class="fas fa-volume-up"></i></button></div>
+                
+                <!-- 65% -->
+                <div class="percentage-cell" style="background-color: hsl(75, 100%, 45%);">65%</div>
+                <div class="german-cell" data-word="voraussichtlich" data-translation="expectedly" data-example="Der Zug kommt &lt;strong&gt;voraussichtlich&lt;/strong&gt; pünktlich an." data-example-de="Der Zug kommt voraussichtlich pünktlich an." data-usage="Expected outcome">voraussichtlich</div>
+                <div class="english-cell">expectedly</div>
+                <div class="speaker-cell"><button class="speaker-btn"><i class="fas fa-volume-up"></i></button></div>
+                
+                <!-- 62% -->
+                <div class="percentage-cell" style="background-color: hsl(70, 100%, 46%);">62%</div>
+                <div class="german-cell" data-word="wohl" data-translation="likely" data-example="Er ist &lt;strong&gt;wohl&lt;/strong&gt; schon zu Hause." data-example-de="Er ist wohl schon zu Hause." data-usage="Presumably">wohl</div>
+                <div class="english-cell">likely/presumably</div>
+                <div class="speaker-cell"><button class="speaker-btn"><i class="fas fa-volume-up"></i></button></div>
+                
+                <!-- 55% -->
+                <div class="percentage-cell" style="background-color: hsl(65, 100%, 47%);">55%</div>
+                <div class="german-cell" data-word="scheinbar" data-translation="apparently" data-example="Sie ist &lt;strong&gt;scheinbar&lt;/strong&gt; nicht zu Hause." data-example-de="Sie ist scheinbar nicht zu Hause." data-usage="Apparent probability">scheinbar, anscheinend</div>
+                <div class="english-cell">apparently</div>
+                <div class="speaker-cell"><button class="speaker-btn"><i class="fas fa-volume-up"></i></button></div>
+                
+                <!-- Section: Mittlere Wahrscheinlichkeit -->
+                <div class="section-separator">
+                    <span class="section-label">Mittlere Wahrscheinlichkeit</span>
+                </div>
+                
+                <!-- 50% -->
+                <div class="percentage-cell" style="background-color: hsl(60, 100%, 48%);">50%</div>
+                <div class="german-cell highlight" data-word="vielleicht" data-translation="maybe" data-example="&lt;strong&gt;Vielleicht&lt;/strong&gt; gehe ich später ins Kino." data-example-de="Vielleicht gehe ich später ins Kino." data-usage="Fifty-fifty chance">vielleicht, eventuell</div>
+                <div class="english-cell highlight">maybe, potentially</div>
+                <div class="speaker-cell"><button class="speaker-btn"><i class="fas fa-volume-up"></i></button></div>
+                
+                <!-- 45% -->
+                <div class="percentage-cell" style="background-color: hsl(55, 100%, 48%);">45%</div>
+                <div class="german-cell" data-word="mutmaßlich" data-translation="conjecturally" data-example="Der &lt;strong&gt;mutmaßliche&lt;/strong&gt; Täter wurde gefasst." data-example-de="Der mutmaßliche Täter wurde gefasst." data-usage="Conjectural probability">mutmaßlich</div>
+                <div class="english-cell">conjecturally</div>
+                <div class="speaker-cell"><button class="speaker-btn"><i class="fas fa-volume-up"></i></button></div>
+                
+                <!-- 40% -->
+                <div class="percentage-cell" style="background-color: hsl(50, 100%, 48%);">40%</div>
+                <div class="german-cell" data-word="möglicherweise" data-translation="possibly" data-example="&lt;strong&gt;Möglicherweise&lt;/strong&gt; kommt er später." data-example-de="Möglicherweise kommt er später." data-usage="Possible outcome">möglicherweise, womöglich</div>
+                <div class="english-cell">possibly, perhaps</div>
+                <div class="speaker-cell"><button class="speaker-btn"><i class="fas fa-volume-up"></i></button></div>
+                
+                <!-- 35% -->
+                <div class="percentage-cell" style="background-color: hsl(45, 100%, 48%);">35%</div>
+                <div class="german-cell" data-word="gegebenenfalls" data-translation="if applicable" data-example="&lt;strong&gt;Gegebenenfalls&lt;/strong&gt; müssen wir den Termin verschieben." data-example-de="Gegebenenfalls müssen wir den Termin verschieben." data-usage="Conditional possibility">gegebenenfalls</div>
+                <div class="english-cell">if applicable</div>
+                <div class="speaker-cell"><button class="speaker-btn"><i class="fas fa-volume-up"></i></button></div>
+                
+                <!-- 30% -->
+                <div class="percentage-cell" style="background-color: hsl(40, 100%, 48%);">30%</div>
+                <div class="german-cell" data-word="unter Umständen" data-translation="under circumstances" data-example="&lt;strong&gt;Unter Umständen&lt;/strong&gt; kann das passieren." data-example-de="Unter Umständen kann das passieren." data-usage="Possible under circumstances">unter Umständen</div>
+                <div class="english-cell">under circumstances</div>
+                <div class="speaker-cell"><button class="speaker-btn"><i class="fas fa-volume-up"></i></button></div>
+                
+                <!-- Section: Geringe Wahrscheinlichkeit -->
+                <div class="section-separator">
+                    <span class="section-label">Geringe Wahrscheinlichkeit</span>
+                </div>
+                
+                <!-- 25% -->
+                <div class="percentage-cell" style="background-color: hsl(35, 100%, 48%);">25%</div>
+                <div class="german-cell" data-word="je nachdem" data-translation="depending on" data-example="&lt;strong&gt;Je nachdem&lt;/strong&gt;, wie das Wetter wird." data-example-de="Je nachdem, wie das Wetter wird." data-usage="Dependent possibility">je nachdem</div>
+                <div class="english-cell">depending on</div>
+                <div class="speaker-cell"><button class="speaker-btn"><i class="fas fa-volume-up"></i></button></div>
+                
+                <!-- 20% -->
+                <div class="percentage-cell" style="background-color: hsl(30, 100%, 48%);">20%</div>
+                <div class="german-cell" data-word="vielleicht nicht" data-translation="maybe not" data-example="Er kommt &lt;strong&gt;vielleicht nicht&lt;/strong&gt;." data-example-de="Er kommt vielleicht nicht." data-usage="Unlikely">vielleicht nicht</div>
+                <div class="english-cell">maybe not</div>
+                <div class="speaker-cell"><button class="speaker-btn"><i class="fas fa-volume-up"></i></button></div>
+                
+                <!-- 15% -->
+                <div class="percentage-cell" style="background-color: hsl(25, 100%, 48%);">15%</div>
+                <div class="german-cell" data-word="unwahrscheinlich" data-translation="unlikely" data-example="Es ist &lt;strong&gt;unwahrscheinlich&lt;/strong&gt;, dass sie kommt." data-example-de="Es ist unwahrscheinlich, dass sie kommt." data-usage="Improbable">unwahrscheinlich</div>
+                <div class="english-cell">unlikely</div>
+                <div class="speaker-cell"><button class="speaker-btn"><i class="fas fa-volume-up"></i></button></div>
+                
+                <!-- 10% -->
+                <div class="percentage-cell" style="background-color: hsl(20, 100%, 48%);">10%</div>
+                <div class="german-cell" data-word="kaum" data-translation="hardly" data-example="Das ist &lt;strong&gt;kaum&lt;/strong&gt; möglich." data-example-de="Das ist kaum möglich." data-usage="Scarcely possible">kaum</div>
+                <div class="english-cell">hardly</div>
+                <div class="speaker-cell"><button class="speaker-btn"><i class="fas fa-volume-up"></i></button></div>
+                
+                <!-- 5% -->
+                <div class="percentage-cell" style="background-color: hsl(15, 100%, 48%);">5%</div>
+                <div class="german-cell" data-word="möglicherweise nicht" data-translation="possibly not" data-example="Das ist &lt;strong&gt;möglicherweise nicht&lt;/strong&gt; korrekt." data-example-de="Das ist möglicherweise nicht korrekt." data-usage="Possibly not">möglicherweise nicht</div>
+                <div class="english-cell">possibly not</div>
+                <div class="speaker-cell"><button class="speaker-btn"><i class="fas fa-volume-up"></i></button></div>
+                
+                <!-- Section: Unmöglich -->
+                <div class="section-separator">
+                    <span class="section-label">Unmöglich</span>
+                </div>
+                
+                <!-- 1% -->
+                <div class="percentage-cell" style="background-color: hsl(10, 100%, 48%);">1%</div>
+                <div class="german-cell" data-word="fast unmöglich" data-translation="nearly impossible" data-example="Das ist &lt;strong&gt;fast unmöglich&lt;/strong&gt;." data-example-de="Das ist fast unmöglich." data-usage="Nearly impossible">fast unmöglich</div>
+                <div class="english-cell">nearly impossible</div>
+                <div class="speaker-cell"><button class="speaker-btn"><i class="fas fa-volume-up"></i></button></div>
+                
+                <!-- 0% -->
+                <div class="percentage-cell" style="background-color: hsl(0, 100%, 45%);">0%</div>
+                <div class="german-cell" data-word="ausgeschlossen" data-translation="impossible" data-example="Das ist völlig &lt;strong&gt;ausgeschlossen&lt;/strong&gt;." data-example-de="Das ist völlig ausgeschlossen." data-usage="Completely impossible">ausgeschlossen</div>
+                <div class="english-cell">impossible</div>
+                <div class="speaker-cell"><button class="speaker-btn"><i class="fas fa-volume-up"></i></button></div>
+            </div>
+            
+            <div class="explanation">
+                <h3><i class="fas fa-lightbulb"></i> Verwendungshinweise</h3>
+                <p>Modaladverbien der Wahrscheinlichkeit drücken unterschiedliche Grade von Sicherheit oder Möglichkeit aus. Sie helfen, Aussagen zu nuancieren und die Wahrscheinlichkeit eines Ereignisses einzuschätzen. Die Prozentangaben sind Richtwerte zur Veranschaulichung der relativen Sicherheit.</p>
+                <p>Beachten Sie, dass die genaue Bedeutung vom Kontext abhängt und zwischen Sprechern variieren kann.</p>
+            </div>
+        </div>
+        
+        <footer>
+            <p>Deutsche Modaladverbien der Wahrscheinlichkeit | Interaktives Lernwerkzeug</p>
+        </footer>
+    </div>
+    
+    <!-- Popup Structure -->
+    <div class="popup" id="wordPopup">
+        <div class="popup-content">
+            <span class="close-btn" id="closePopup">×</span>
+            <div class="popup-header">
+                <div class="popup-word" id="popupWord"></div>
+                <div class="popup-translation" id="popupTranslation"></div>
+            </div>
+            <div class="popup-example" id="popupExample"></div>
+            <div class="popup-footer">
+                <div class="popup-usage" id="popupUsage"></div>
+                
+                <div class="voice-controls">
+                    <div class="control-group">
+                        <label for="voiceSelect">Stimme:</label>
+                        <select id="voiceSelect" class="voice-select"></select>
+                    </div>
+                    
+                    <div class="control-group">
+                        <label for="speedControl">Sprechtempo:</label>
+                        <input type="range" id="speedControl" class="speed-slider" min="0.5" max="2" step="0.1" value="1.0">
+                        <div class="speed-value" id="speedValue">1.0x</div>
+                    </div>
+                </div>
+                
+                <button class="popup-speaker" id="popupSpeaker">
+                    <i class="fas fa-volume-up"></i> Beispielsatz hören
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Global variables for speech settings
+        let speechSettings = {
+            rate: 1.0,
+            voice: null
+        };
+        
+        // Function to show status message
+        function showStatus(message, duration = 2000) {
+            const indicator = document.getElementById('statusIndicator');
+            indicator.textContent = message;
+            indicator.classList.add('show');
+            
+            setTimeout(() => {
+                indicator.classList.remove('show');
+            }, duration);
+        }
+        
+        // Function to show the popup with word details
+        function showPopup(cell) {
+            const word = cell.getAttribute('data-word');
+            const translation = cell.getAttribute('data-translation');
+            const example = cell.getAttribute('data-example');
+            const exampleDe = cell.getAttribute('data-example-de');
+            const usage = cell.getAttribute('data-usage');
+            
+            document.getElementById('popupWord').textContent = word;
+            document.getElementById('popupTranslation').textContent = translation;
+            document.getElementById('popupExample').innerHTML = example;
+            document.getElementById('popupUsage').textContent = usage;
+            
+            // Store the German example text for pronunciation
+            document.getElementById('popupSpeaker').setAttribute('data-text', exampleDe);
+            
+            // Show the popup
+            document.getElementById('wordPopup').classList.add('active');
+        }
+        
+        // Function to close the popup
+        function closePopup() {
+            document.getElementById('wordPopup').classList.remove('active');
+        }
+        
+        // Function to speak the text
+        function speakText(text) {
+            if ('speechSynthesis' in window) {
+                const utterance = new SpeechSynthesisUtterance(text);
+                utterance.lang = 'de-DE'; // German language
+                utterance.rate = speechSettings.rate; // Use current rate setting
+                utterance.volume = 1;
+                
+                // Use selected voice if available
+                if (speechSettings.voice) {
+                    utterance.voice = speechSettings.voice;
+                }
+                
+                // Add loading state to button
+                const speakerBtn = document.getElementById('popupSpeaker');
+                speakerBtn.classList.add('loading');
+                
+                // Speak the text
+                speechSynthesis.speak(utterance);
+                
+                // Remove loading state when done
+                utterance.onend = function() {
+                    speakerBtn.classList.remove('loading');
+                };
+                
+                utterance.onerror = function() {
+                    speakerBtn.classList.remove('loading');
+                    showStatus("Fehler bei der Aussprache", 3000);
+                };
+            } else {
+                showStatus("Ihr Browser unterstützt keine Sprachausgabe", 3000);
+            }
+        }
+        
+        // Function to populate voice dropdown
+        function populateVoiceList() {
+            const voiceSelect = document.getElementById('voiceSelect');
+            voiceSelect.innerHTML = '';
+            
+            const voices = speechSynthesis.getVoices();
+            const germanVoices = voices.filter(voice => 
+                voice.lang.startsWith('de') || 
+                voice.name.toLowerCase().includes('german')
+            );
+            
+            // Add German voices first
+            germanVoices.forEach(voice => {
+                const option = document.createElement('option');
+                option.textContent = `${voice.name} (${voice.lang})`;
+                option.setAttribute('data-lang', voice.lang);
+                option.setAttribute('data-name', voice.name);
+                option.value = voice.name;
+                voiceSelect.appendChild(option);
+            });
+            
+            // Add a separator
+            const separator = document.createElement('option');
+            separator.disabled = true;
+            separator.textContent = '──────────';
+            voiceSelect.appendChild(separator);
+            
+            // Add all other voices
+            voices.filter(voice => !germanVoices.includes(voice)).forEach(voice => {
+                const option = document.createElement('option');
+                option.textContent = `${voice.name} (${voice.lang})`;
+                option.setAttribute('data-lang', voice.lang);
+                option.setAttribute('data-name', voice.name);
+                option.value = voice.name;
+                voiceSelect.appendChild(option);
+            });
+            
+            // Select the first German voice by default if available
+            if (germanVoices.length > 0) {
+                voiceSelect.value = germanVoices[0].name;
+                speechSettings.voice = germanVoices[0];
+            }
+        }
+        
+        // Initialize the application
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load voices when they become available
+            speechSynthesis.onvoiceschanged = function() {
+                populateVoiceList();
+            };
+            
+            // Initialize voices
+            populateVoiceList();
+            
+            // Add event listeners to German cells
+            const germanCells = document.querySelectorAll('.german-cell');
+            germanCells.forEach(cell => {
+                cell.addEventListener('click', function() {
+                    showPopup(this);
+                });
+            });
+            
+            // Add click event to speaker buttons
+            const speakerBtns = document.querySelectorAll('.speaker-btn');
+            speakerBtns.forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.stopPropagation(); // Prevent triggering cell click
+                    const cell = this.closest('.speaker-cell').previousElementSibling.previousElementSibling;
+                    const word = cell.getAttribute('data-word');
+                    speakText(word);
+                });
+            });
+            
+            // Close popup when clicking the close button
+            document.getElementById('closePopup').addEventListener('click', closePopup);
+            
+            // Close popup when clicking outside the content
+            document.getElementById('wordPopup').addEventListener('click', function(e) {
+                if (e.target === this) {
+                    closePopup();
+                }
+            });
+            
+            // Add click event to the popup speaker button
+            document.getElementById('popupSpeaker').addEventListener('click', function() {
+                const text = this.getAttribute('data-text');
+                speakText(text);
+            });
+            
+            // Handle voice selection change
+            document.getElementById('voiceSelect').addEventListener('change', function() {
+                const voiceName = this.value;
+                const voices = speechSynthesis.getVoices();
+                const selectedVoice = voices.find(voice => voice.name === voiceName);
+                
+                if (selectedVoice) {
+                    speechSettings.voice = selectedVoice;
+                    showStatus(`Stimme geändert zu ${selectedVoice.name}`, 2000);
+                }
+            });
+            
+            // Handle speed control change
+            const speedControl = document.getElementById('speedControl');
+            const speedValue = document.getElementById('speedValue');
+            
+            speedControl.addEventListener('input', function() {
+                const speed = parseFloat(this.value);
+                speechSettings.rate = speed;
+                speedValue.textContent = speed.toFixed(1) + 'x';
+            });
+        });
+        
+        // Close popup when pressing Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && document.getElementById('wordPopup').classList.contains('active')) {
+                closePopup();
+            }
+        });
+    </script>
+
+</body></html>
