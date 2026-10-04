@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1800" height="1060" viewBox="0 0 1800 1060">
+  <rect width="1800" height="1060" fill="#f7faf8"/>
+  <rect x="28" y="28" width="1744" height="1004" rx="30" fill="none" stroke="#2f7d54" stroke-width="6"/>
+  <text x="58" y="92" font-family="Arial, Helvetica, sans-serif" font-size="52" font-weight="700" fill="#15324b">Contain, consist, intend</text>
+  <text x="60" y="145" font-family="Arial, Helvetica, sans-serif" font-size="28" fill="#667788">whole and parts · intention · plan</text>
+  <text x="1742" y="92" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="22" fill="#2f7d54">German verb contrast card</text>
+  <text x="1742" y="145" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="22" fill="#667788">Reference: attached PDF, page 46</text>
+  <g>
+      <rect x="52" y="250" width="548" height="361" rx="26" fill="#ffffff" stroke="#dbe5e1" stroke-width="3"/>
+      <rect x="52" y="250" width="10" height="361" rx="5" fill="#2f7d54"/>
+      <g transform="translate(80,280) scale(0.76)"><rect x="48" y="42" width="104" height="75" rx="8" fill="#eef6f0" stroke="#2f7d54" stroke-width="3.8"/><circle cx="99" cy="82" r="20" fill="#fff8e9" stroke="#2f7d54" stroke-width="3.8"/><line x1="77" y1="82" x2="121" y2="82" stroke="#2f7d54" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/><line x1="99" y1="60" x2="99" y2="104" stroke="#2f7d54" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></g>
+      <text x="242" y="322" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700" fill="#1f2933">bestehen aus</text>
+      <foreignObject x="242" y="345" width="328" height="246"><div xmlns="http://www.w3.org/1999/xhtml" style="font-family:Arial,Helvetica,sans-serif;font-size:26px;line-height:1.2;color:#667788;">consist of parts</div></foreignObject>
+    </g><g>
+      <rect x="626" y="250" width="548" height="361" rx="26" fill="#ffffff" stroke="#dbe5e1" stroke-width="3"/>
+      <rect x="626" y="250" width="10" height="361" rx="5" fill="#bd5b42"/>
+      <g transform="translate(654,280) scale(0.76)"><rect x="48" y="42" width="104" height="75" rx="8" fill="#eef6f0" stroke="#bd5b42" stroke-width="3.8"/><circle cx="99" cy="82" r="20" fill="#fff8e9" stroke="#bd5b42" stroke-width="3.8"/><line x1="77" y1="82" x2="121" y2="82" stroke="#bd5b42" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/><line x1="99" y1="60" x2="99" y2="104" stroke="#bd5b42" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></g>
+      <text x="816" y="322" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700" fill="#1f2933">enthalten</text>
+      <foreignObject x="816" y="345" width="328" height="246"><div xmlns="http://www.w3.org/1999/xhtml" style="font-family:Arial,Helvetica,sans-serif;font-size:26px;line-height:1.2;color:#667788;">contain / include</div></foreignObject>
+    </g><g>
+      <rect x="1200" y="250" width="548" height="361" rx="26" fill="#ffffff" stroke="#dbe5e1" stroke-width="3"/>
+      <rect x="1200" y="250" width="10" height="361" rx="5" fill="#c68b25"/>
+      <g transform="translate(1228,280) scale(0.76)"><rect x="38" y="36" width="106" height="82" rx="6" fill="#eef6f0" stroke="#c68b25" stroke-width="3.8"/><polyline points="48,101 48,60 91,39 135,60 135,101" stroke="#c68b25" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/><polyline points="60,101 60,73 91,56 120,73 120,101" stroke="#c68b25" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/><line x1="91" y1="39" x2="91" y2="116" stroke="#c68b25" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></g>
+      <text x="1390" y="322" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700" fill="#1f2933">Vorhaben</text>
+      <foreignObject x="1390" y="345" width="328" height="246"><div xmlns="http://www.w3.org/1999/xhtml" style="font-family:Arial,Helvetica,sans-serif;font-size:26px;line-height:1.2;color:#667788;">intention / project</div></foreignObject>
+    </g><g>
+      <rect x="52" y="637" width="548" height="361" rx="26" fill="#ffffff" stroke="#dbe5e1" stroke-width="3"/>
+      <rect x="52" y="637" width="10" height="361" rx="5" fill="#15324b"/>
+      <g transform="translate(80,667) scale(0.76)"><rect x="38" y="36" width="106" height="82" rx="6" fill="#eef6f0" stroke="#15324b" stroke-width="3.8"/><polyline points="48,101 48,60 91,39 135,60 135,101" stroke="#15324b" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/><polyline points="60,101 60,73 91,56 120,73 120,101" stroke="#15324b" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/><line x1="91" y1="39" x2="91" y2="116" stroke="#15324b" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></g>
+      <text x="242" y="709" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700" fill="#1f2933">planen</text>
+      <foreignObject x="242" y="732" width="328" height="246"><div xmlns="http://www.w3.org/1999/xhtml" style="font-family:Arial,Helvetica,sans-serif;font-size:26px;line-height:1.2;color:#667788;">plan how to do it</div></foreignObject>
+    </g><g>
+      <rect x="626" y="637" width="548" height="361" rx="26" fill="#ffffff" stroke="#dbe5e1" stroke-width="3"/>
+      <rect x="626" y="637" width="10" height="361" rx="5" fill="#2f7d54"/>
+      <g transform="translate(654,667) scale(0.76)"><circle cx="98" cy="80" r="48" fill="#fff3f0" stroke="#2f7d54" stroke-width="3.8"/><line x1="67" y1="49" x2="129" y2="111" stroke="#2f7d54" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="98" cy="73" r="12" stroke="#2f7d54" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/><line x1="98" y1="85" x2="98" y2="125" stroke="#2f7d54" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/><line x1="98" y1="95" x2="74" y2="111" stroke="#2f7d54" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/><line x1="98" y1="95" x2="122" y2="111" stroke="#2f7d54" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/><line x1="98" y1="125" x2="80" y2="153" stroke="#2f7d54" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/><line x1="98" y1="125" x2="116" y2="153" stroke="#2f7d54" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></g>
+      <text x="816" y="709" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700" fill="#1f2933">verbieten</text>
+      <foreignObject x="816" y="732" width="328" height="246"><div xmlns="http://www.w3.org/1999/xhtml" style="font-family:Arial,Helvetica,sans-serif;font-size:26px;line-height:1.2;color:#667788;">forbid formally</div></foreignObject>
+    </g>
+  <text x="58" y="1032" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#667788">Use the scene cue first; then say the verb aloud in a short sentence.</text>
+  </svg>
