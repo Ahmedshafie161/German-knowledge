@@ -26,11 +26,12 @@ function renderList(){const list=filtered();$('wordList').replaceChildren();for(
 function count(){$('count').textContent=`${selected.size} selected · ${filtered().length} matching`;$('start').disabled=!selected.size;}
 function stop(){token++;running=false;$('audio').pause();if(release){release();release=null;}$('play').textContent='▶ Play';}
 function plain(html){return new DOMParser().parseFromString(html||'','text/html').body.textContent||'';}
-async function api(host,params){const url=new URL('https://'+host+'/w/api.php');url.search=new URLSearchParams({...params,format:'json',origin:'*'});const r=await fetch(url,{credentials:'omit',signal:AbortSignal.timeout(15000)});if(!r.ok)throw Error('Recording service is unavailable. Please retry.');const data=await r.json();if(data.error)throw Error('Recording lookup failed. Please retry.');return data;}
+async function api(host,params){const url=new URL('https://'+host+'/w/api.php');url.search=new URLSearchParams({...params,format:'json',origin:'*'});const r=await fetch(url,{credentials:'omit',signal:AbortSignal.timeout(15000)});if(!r.ok)throw Error('Recording service is unavailable. Please retry.');const data=await r.json();if(data.error){const error=Error('Recording lookup failed. Please retry.');error.code=data.error.code;throw error;}return data;}
 async function recording(word){const key=lemma(word);if(recordings.has(key))return recordings.get(key);
- const parsed=await api('de.wiktionary.org',{action:'parse',page:key,prop:'wikitext',redirects:1});const text=parsed.parse?.wikitext?.['*']||'';
+ let text='';try{const parsed=await api('de.wiktionary.org',{action:'parse',page:key,prop:'wikitext',redirects:1});text=parsed.parse?.wikitext?.['*']||'';}catch(error){if(error.code!=='missingtitle')throw error;}
  const files=[...text.matchAll(/\{\{Audio\|([^|}]+)(?:\||\})/gi)].map(m=>m[1].trim()).filter(f=>/^De-/i.test(f)&&/\.(ogg|oga|mp3|wav)$/i.test(f));
- if(!files.length)throw Error('No German recording found for this word. Use Next to skip.');
+ // A Commons pronunciation can exist before its dictionary article is created.
+ if(!files.length)files.push(`De-${key}.ogg`);
  const data=await api('commons.wikimedia.org',{action:'query',titles:[...new Set(files)].slice(0,12).map(f=>'File:'+f).join('|'),prop:'imageinfo',iiprop:'url|extmetadata'});
  const nativeRank=p=>Number(/native German speaker|German native speaker|deutsche[rn]? Muttersprachler/i.test(plain(p.imageinfo?.[0]?.extmetadata?.ImageDescription?.value)));
  for(const page of Object.values(data.query?.pages||{}).sort((a,b)=>nativeRank(b)-nativeRank(a))){const info=page.imageinfo?.[0],m=info?.extmetadata;if(!info||!m?.Artist||!m?.LicenseShortName)continue;const description=plain(m.ImageDescription?.value);if(/synthe(?:tic|sized)|text.to.speech|computer.generated/i.test(description))continue;
