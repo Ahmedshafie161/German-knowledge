@@ -67,6 +67,8 @@ $('clearGroup').onclick=()=>{galleryGroup='';start();};
 if(typeof location!=='undefined'&&typeof URLSearchParams!=='undefined'){
  const params=new URLSearchParams(location.search),kind=params.get('kind'),group=params.get('group'),card=params.get('card');
  if(['verb','noun','adjective','adverb','mixed'].includes(kind))$('kind').value=kind;
+ if(['A1','A2','B1','B2'].includes(params.get('level')))$('level').value=params.get('level');
+ if(params.get('q'))$('search').value=params.get('q');
  if(group&&CARDS.some(c=>c.galleryGroup===group&&c.kind===$('kind').value))galleryGroup=group;
  if(card&&CARDS.some(c=>c.id===card&&c.kind===$('kind').value))requestedCard=card;
  if(galleryGroup||requestedCard)$('mode').value='all';
